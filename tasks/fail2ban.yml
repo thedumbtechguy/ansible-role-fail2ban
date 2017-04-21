@@ -1,0 +1,28 @@
+---
+
+- name: ensure fail2ban is installed
+  apt: 
+    name: fail2ban 
+    state: present 
+    update_cache: true
+  become: true
+  notify:
+    - restart fail2ban
+
+- name: ensure fail2ban is configured
+  template: 
+    src: '{{ item }}.j2' 
+    dest: '/{{ item }}'
+  become: true
+  with_items:
+    - etc/fail2ban/jail.local
+    - etc/fail2ban/fail2ban.local
+  notify:
+    - restart fail2ban
+
+- name: ensure fail2ban starts on a fresh reboot
+  service: 
+    name: fail2ban 
+    state: started 
+    enabled: yes
+  become: true
