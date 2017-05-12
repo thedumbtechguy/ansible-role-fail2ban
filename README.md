@@ -44,7 +44,7 @@ An ansible role to install and configure fail2ban.
     - `auto`
 
 - `fail2ban_destemail`: where should e-mail reports be sent
-  - Default: `root@localhost`
+  - Default: `root`
 
 - `fail2ban_banaction`: default method of how the ban should be applied
   - Default: `iptables-multiport`

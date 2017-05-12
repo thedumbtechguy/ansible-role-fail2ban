@@ -10,7 +10,7 @@ fail2ban_maxretry: 4
 
 fail2ban_backend: polling
 
-fail2ban_destemail: root@localhost
+fail2ban_destemail: root
 fail2ban_banaction: iptables-multiport
 fail2ban_mta: sendmail
 fail2ban_protocol: tcp
